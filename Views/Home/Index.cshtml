@@ -1,0 +1,37 @@
+﻿@{
+    ViewData["Title"] = "Math App";
+}
+
+<h1 class="center">@ViewData["Title"]</h1>
+
+<div class="container">
+    <form asp-action="Calculate" method="post">
+        <div class="form-group">
+            <input type="number" name="num1" step="0.1" placeholder="Enter first number" required>
+        </div>
+
+        <div class="form-group">
+            <label>Enter the operator:</label>
+            <select name="op" required>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="number" name="num2" step="0.1" placeholder="Enter second number" required>
+        </div>
+
+        <input class="btn btn-primary" type="submit" value="Calculate" />
+    </form>
+</div>
+
+@if (ViewBag.Result != null)
+{
+    <div class="result">
+        <h3>Result:</h3>
+        <p>@ViewBag.Result</p>
+    </div>
+}
